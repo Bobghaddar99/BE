@@ -1,0 +1,21 @@
+global_costmap:
+  global_frame: map  # Frame that the global costmap will use
+  robot_base_frame: base_link  # Frame of the robot base
+  update_frequency: 5.0  # Frequency to update the global costmap
+  publish_frequency: 2.0  # Frequency to publish the global costmap
+  static_map: false  # Set this to false to allow dynamic updates from SLAM
+  transform_tolerance: 0.7  # How long to wait for transforms
+  resolution: 0.05  # Higher value (e.g., 0.1) reduces computation
+
+  plugins:
+    - { name: static_layer, type: "costmap_2d::StaticLayer" }
+    - { name: obstacle_layer, type: "costmap_2d::ObstacleLayer" }
+    - { name: inflation_layer, type: "costmap_2d::InflationLayer" }
+
+  obstacle_layer:
+    observation_sources: scan  # Source of sensor data for obstacles
+    scan: {sensor_frame: base_scan, data_type: LaserScan, topic: /scan, marking: true, clearing: true}
+
+  inflation_layer:
+    inflation_radius: 0.2
+    cost_scaling_factor: 3.0
