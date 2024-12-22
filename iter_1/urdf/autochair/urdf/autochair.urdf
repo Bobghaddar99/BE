@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="autochair">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-2.86292239780799 0.860427713554679 -3.09878487731917"
+        rpy="0 0 0" />
+      <mass
+        value="31.4560304030786" />
+      <inertia
+        ixx="4.24847130734358"
+        ixy="0.771169199853514"
+        ixz="0.00593912739982923"
+        iyy="1.12818726077964"
+        iyz="-0.0255844170327572"
+        izz="4.18387337996704" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="-0.020882 -0.46295 0.32038"
+        rpy="0 0 0" />
+      <mass
+        value="1.8909" />
+      <inertia
+        ixx="0.0046927"
+        ixy="1.1375E-06"
+        ixz="2.0325E-06"
+        iyy="0.0046922"
+        iyz="-4.5103E-06"
+        izz="0.0076286" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-2.8933 3.1004 0.50776"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="8.67125611314634E-07 -4.57845127444165E-05 -0.0830178005163944"
+        rpy="0 0 0" />
+      <mass
+        value="1.89094567469007" />
+      <inertia
+        ixx="0.00469339303928487"
+        ixy="6.34080431368673E-07"
+        ixz="1.77011754618064E-07"
+        iyy="0.00469143666348197"
+        iyz="-4.94395558368763E-06"
+        izz="0.00762861332160975" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-2.9142 3.3404 0.044848"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="right_caster_wheel">
+    <inertial>
+      <origin
+        xyz="0.024744 -0.1119 0.05324"
+        rpy="0 0 0" />
+      <mass
+        value="0.24268" />
+      <inertia
+        ixx="0.00018529"
+        ixy="5.8889E-06"
+        ixz="-4.5292E-06"
+        iyy="0.00018388"
+        iyz="2.2101E-07"
+        izz="0.00030165" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/right_caster_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/right_caster_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_caster_joint"
+    type="fixed">
+    <origin
+      xyz="-2.3763778140888 2.86576396242897 0.120147829114934"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_caster_wheel" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="left_caster_wheel">
+    <inertial>
+      <origin
+        xyz="0.024757 -0.1119 -0.049813"
+        rpy="0 0 0" />
+      <mass
+        value="0.24268" />
+      <inertia
+        ixx="0.00018513"
+        ixy="5.8926E-06"
+        ixz="-1.4569E-06"
+        iyy="0.00018388"
+        iyz="6.5708E-08"
+        izz="0.0003018" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/left_caster_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/left_caster_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_caster_joint"
+    type="fixed">
+    <origin
+      xyz="-2.3764 3.3374 0.12015"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_caster_wheel" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="0.00676832715317666 -0.00738785210738577 9.17768374701922E-05"
+        rpy="0 0 0" />
+      <mass
+        value="1.33041048124832" />
+      <inertia
+        ixx="0.000614736954229148"
+        ixy="0.000158189979278381"
+        ixz="8.00271259590291E-07"
+        iyy="0.00109812375363565"
+        iyz="3.0960362664797E-06"
+        izz="0.000960497023041248" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autochair/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="-2.6586 3.1054 0.1445"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
