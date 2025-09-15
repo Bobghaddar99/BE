@@ -38,3 +38,6 @@ Key highlights:
 - Sensor fusion for mapping 
 
 ---
+
+For launching everything type 
+ros launch launcher_of_launchers
