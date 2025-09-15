@@ -46,12 +46,12 @@ Key highlights:
 cd ~/catkin_ws/src
 git clone https://github.com/Bobghaddar99/BE.git
 
-2 . Build the workspace:
+**## Build the workspace:**
 
 cd ~/catkin_ws
 catkin_make
 source devel/setup.bash
 
-    Launch the full system:
+**    Launch the full system:**
 
 roslaunch launcher_of_launchers.launch
