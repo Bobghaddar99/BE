@@ -1,0 +1,4 @@
+<launch>
+
+<node pkg="gui_ros" type="final.py" name="GUI" output="screen"/>
+</launch>

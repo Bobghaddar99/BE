@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="jetchair_urdf">
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<!-- <xacro:include filename="$(find jetchair_urdf)/urdf/control.gazebo.xacro"/>  -->
+  
+<link name="base_footprint">
+ </link>
+ <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0310213036661282 -0.117252104820678 -0.00595826621446557"
+        rpy="0 0 0" />
+      <mass
+        value="80.9642334926374" />
+      <inertia
+        ixx="7.60414582023469"
+        ixy="-0.782792858846701"
+        ixz="0.0596712285100728"
+        iyy="5.34758051540826"
+        iyz="0.0883146530810829"
+        izz="9.13344971788898" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+   <joint
+    name="base_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 1.57" />
+    <parent
+      link="base_footprint" />
+    <child
+      link="base_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="2.18719486966279E-12 7.28081948653259E-06 0.0808545907421791"
+        rpy="0 0 0" />
+      <mass
+        value="7.52810740477963" />
+      <inertia
+        ixx="0.0124577654624038"
+        ixy="7.90440963065184E-14"
+        ixz="1.10790272704899E-12"
+        iyy="0.012458040042979"
+        iyz="3.01210037788592E-06"
+        izz="0.0212379730331371" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.345425505623131 -0.197945838271758 -0.55194430102951"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="-2.18725038081402E-12 7.28081948653259E-06 -0.0808545907421791"
+        rpy="0 0 0" />
+      <mass
+        value="7.52810740477961" />
+      <inertia
+        ixx="0.0124577654624038"
+        ixy="-7.90695572382612E-14"
+        ixz="1.1078969777514E-12"
+        iyy="0.012458040042979"
+        iyz="-3.0121003778858E-06"
+        izz="0.0212379730331371" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.345425505623134 0.199254161728242 -0.551944301029511"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="right_caster_bearing">
+    <inertial>
+      <origin
+        xyz="0.00857738689563864 -0.022175707908113 0.000537079799070195"
+        rpy="0 0 0" />
+      <mass
+        value="0.0303363458543203" />
+      <inertia
+        ixx="1.47443404963957E-05"
+        ixy="4.20983653989267E-06"
+        ixz="-3.43456946058865E-07"
+        iyy="1.37640539299902E-05"
+        iyz="4.41560643447595E-07"
+        izz="1.55492065325909E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/right_caster_bearing.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/right_caster_bearing.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_cast_top_joint"
+    type="continuous">
+    <origin
+      xyz="0.23405647736728 -0.21001090178122 -0.532182100047298"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_caster_bearing" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="right_caster_wheel">
+    <inertial>
+      <origin
+        xyz="8.65973959207622E-15 1.4432899320127E-15 -0.0246062500000015"
+        rpy="0 0 0" />
+      <mass
+        value="0.117595069356565" />
+      <inertia
+        ixx="4.72988252493348E-05"
+        ixy="-2.84564689097022E-21"
+        ixz="4.68844730240266E-21"
+        iyy="4.72988252493348E-05"
+        iyz="-4.68650601676631E-21"
+        izz="8.10008855173149E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/right_caster_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/right_caster_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_cast_bottom_joint"
+    type="continuous">
+    <origin
+      xyz="0.0342681608192805 -0.0623782373405626 0.0246062499999999"
+      rpy="0 0 0" />
+    <parent
+      link="right_caster_bearing" />
+    <child
+      link="right_caster_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="left_caster_bearing">
+    <inertial>
+      <origin
+        xyz="0.00857738691168408 -0.0221757079081139 0.000537079798720114"
+        rpy="0 0 0" />
+      <mass
+        value="0.0303363458543198" />
+      <inertia
+        ixx="1.47443404747391E-05"
+        ixy="4.20983653806445E-06"
+        ixz="-3.43456974644208E-07"
+        iyy="1.37640539299901E-05"
+        iyz="4.41560643416159E-07"
+        izz="1.5549206554247E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/left_caster_bearing.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/left_caster_bearing.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_cast_top_joint"
+    type="continuous">
+    <origin
+      xyz="0.234056477367286 0.214319225237707 -0.532182100047298"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_caster_bearing" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="left_caster_wheel">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-16 0 -0.02460625"
+        rpy="0 0 0" />
+      <mass
+        value="0.117595069356565" />
+      <inertia
+        ixx="4.72988252493356E-05"
+        ixy="-1.33906203375052E-22"
+        ixz="-1.97076603661464E-20"
+        iyy="4.72988252493356E-05"
+        iyz="-4.82872516489977E-21"
+        izz="8.10008855173164E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/left_caster_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/left_caster_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_cast_bottom_joint"
+    type="continuous">
+    <origin
+      xyz="0.0342681608192785 -0.0623782373405634 0.0246062500000033"
+      rpy="0 0 0" />
+    <parent
+      link="left_caster_bearing" />
+    <child
+      link="left_caster_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="-0.00676832715317711 0.0073878521073858 9.17768374699185E-05"
+        rpy="0 0 0" />
+      <mass
+        value="1.33041048124832" />
+      <inertia
+        ixx="0.000614736954229149"
+        ixy="0.000158189979278382"
+        ixz="-8.00271259590246E-07"
+        iyy="0.00109812375363565"
+        iyz="-3.09603626647974E-06"
+        izz="0.000960497023041251" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="+1.57 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.57 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="-0.00679301908261565 0.00215416172824181 -0.582514301029511"
+      rpy="3.14 0 0 " />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+
+
+ <link
+    name="kinect_cam">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="-0.12 0 -0.05"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/Kinect.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jet_main/meshes/Kinect.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="kinect_joint"
+    type="fixed">
+    <origin
+      xyz="-0.15 0 0.98"
+      rpy="0 0 1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="kinect_cam" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <gazebo reference="lidar">
+    <sensor type="ray" name="laser_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10.0</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>           
+        </scan>
+        <range>
+          <min>0.7</min>
+          <max>12.0</max>
+          <resolution>1</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+          <mean>0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="laser_controller" filename="libgazebo_ros_laser.so">
+        <ros>
+          <argument>~/out:=scan</argument>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <topicName>/scan</topicName>
+        <frameName>lidar</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+<!-- Transmission for Right Wheel -->
+ <gazebo reference="right_wheel">
+    <mu1>100000000000000.0</mu1>
+    <mu2>100000000000000.0</mu2>
+    <kp>10000000000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.22</maxVel>
+    <fdirl>0 0 1</fdirl>
+    </gazebo>
+  <gazebo reference="left_wheel">
+    <mu1>100000000000000.0</mu1>
+    <mu2>1000000000000000.0</mu2>
+    <kp>10000000000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.22</maxVel>
+    <fdirl>0 0 1</fdirl>
+    </gazebo>
+    <gazebo reference="left_caster_wheel">
+    <mu1>0.1.0</mu1>
+    <mu2>0.1.0</mu2>
+    <kp>100000000000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.22</maxVel>
+    <fdirl>0 0 1</fdirl>
+    </gazebo>
+     <gazebo reference="right_caster_wheel">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>100000000000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.22</maxVel>
+    <fdirl>0 0 1</fdirl>
+    </gazebo>
+<transmission name="right_wheel_transmission">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="right_wheel_joint">
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="right_wheel_motor">
+    <hardwareInterface>VelocityActuatorInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="left_wheel_transmission">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="left_wheel_joint">
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="left_wheel_motor">
+    <hardwareInterface>VelocityActuatorInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+
+ <gazebo>
+    <plugin name="controller" filename="libgazebo_ros_diff_drive.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometrySource>scan</odometrySource>
+      <publishOdomTF>true</publishOdomTF>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <publishWheelTF>false</publishWheelTF>
+      <publishTf>true</publishTf>
+      <publishWheelJointState>true</publishWheelJointState>
+      <legacyMode>false</legacyMode>
+      <updateRate>10</updateRate>
+      <leftJoint>left_wheel_joint</leftJoint>
+      <rightJoint>right_wheel_joint</rightJoint>
+      <wheelSeparation>0.472</wheelSeparation>
+      <wheelDiameter>0.20</wheelDiameter>
+      <wheelAcceleration>1</wheelAcceleration>
+      <wheelTorque>100</wheelTorque>
+      <rosDebugLevel>na</rosDebugLevel>
+    </plugin>
+  </gazebo>
+
+</robot>

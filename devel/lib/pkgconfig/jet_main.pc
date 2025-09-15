@@ -1,0 +1,8 @@
+prefix=/home/jetchair/Desktop/be/devel
+
+Name: jet_main
+Description: Description of jet_main
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

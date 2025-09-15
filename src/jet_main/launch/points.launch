@@ -1,0 +1,25 @@
+<launch>
+<node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+    <!-- Input PointCloud2 topic -->
+    <remap from="cloud_in" to="/camera/depth/points"/>
+    <!-- Output LaserScan topic -->
+    <remap from="scan" to="/scan_cloud"/>
+
+    <!-- Optional parameters -->
+    <param name="min_height" value="0.1"/>
+    <param name="max_height" value="3.5"/>
+    <param name="angle_min" value="-3.14"/>
+    <param name="angle_max" value="3.14"/>
+    <param name="angle_increment" value="0.0087"/>
+    <param name="range_min" value="0.1"/>
+    <param name="range_max" value="10.0"/>
+    <param name="scan_time" value="0.1"/>
+    <param name="use_inf" value="true"/>
+    <param name="target_frame" value="lidar"/>
+</node>
+  <!-- Static transform between camera depth frame and lidar frame -->
+
+
+
+<node pkg="jet_algo" type="lifting.py" name="all" output="screen"/>
+</launch>

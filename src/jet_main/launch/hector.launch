@@ -1,0 +1,16 @@
+<launch>
+    <!-- Launch Hector Mapping Node -->
+    <node pkg="hector_mapping" type="hector_mapping" name="hector_mapping" output="screen">
+        <param name="map_resolution" value="0.05" /> <!-- Grid resolution -->
+        <param name="scan_topic" value="/scan_cloud" /> 
+        <param name="map_size" value="1024" /> <!-- Map size in pixels -->
+        <param name="map_start_x" value="0.5" />
+        <param name="map_start_y" value="0.5" />
+	<param name ="base_frame" value = "base_footprint"/>
+        <param name="laser_min_dist" value="0.1" /> <!-- Minimum laser scan distance -->
+        <param name="laser_max_dist" value="30.0" /> <!-- Maximum laser scan distance -->
+        <param name="pub_map_odom_transform" value="true" /> <!-- Publish map->odom transform -->
+    </node>
+
+
+</launch>

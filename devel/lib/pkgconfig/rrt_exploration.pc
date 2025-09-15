@@ -1,0 +1,8 @@
+prefix=/home/jetchair/Desktop/be/devel
+
+Name: rrt_exploration
+Description: Description of rrt_exploration
+Version: 1.0.0
+Cflags: -I/home/jetchair/Desktop/be/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

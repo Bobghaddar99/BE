@@ -1,0 +1,18 @@
+<launch>
+
+ <!--node pkg="tf" type="static_transform_publisher" name="maping" 
+        args="0 0 0.75 0 0 0 base_footprint lidar 100"/ -->
+  <node pkg="tf" type="static_transform_publisher" name="static_tf_base_scan_to_base_footprint" 
+        args="0 0 0 0 0 0 lidar base_scan 100" />
+
+  <include file="$(find jet_main)/launch/display.launch"/>
+	
+	
+	<include file="$(find jet_main)/launch/lidar.launch"/>
+	<include file="$(find jet_main)/launch/gmapping_jetson.launch"/>
+  <include file="$(find jet_nav)/launch/nav_teb.launch"/>
+<node pkg="jet_algo" type="odom.py" name="odom" output="screen"/>
+<node pkg="jet_algo" type="motor.py" name="motor" output="screen"/>
+<node pkg="jet_algo" type="lifting.py" name="all" output="screen"/>
+<node pkg="jet_algo" type="laser_filter.py" name="laser_filter" output="screen"/>
+</launch>

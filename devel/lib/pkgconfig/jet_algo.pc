@@ -1,0 +1,8 @@
+prefix=/home/jetchair/Desktop/be/devel
+
+Name: jet_algo
+Description: Description of jet_algo
+Version: 0.0.0
+Cflags: -I/home/jetchair/Desktop/be/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime roscpp rospy std_msgs

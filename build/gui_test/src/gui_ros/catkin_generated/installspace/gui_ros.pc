@@ -1,0 +1,8 @@
+prefix=/home/jetchair/Desktop/be/install
+
+Name: gui_ros
+Description: Description of gui_ros
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

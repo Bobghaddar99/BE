@@ -1,0 +1,57 @@
+<launch>
+  <!-- Static Transform Publisher for lidar to base_scan -->
+  <node pkg="tf" type="static_transform_publisher" name="static_tf_base_scan_to_base_footprint" 
+        args="0 0 0 0 0 0 lidar base_scan 100" />
+
+  <!-- Include other necessary launch files -->
+  <include file="$(find jet_main)/launch/display.launch"/>
+  <include file="$(find jet_main)/launch/lidar.launch"/>
+  <include file="$(find jet_nav)/launch/nav_teb.launch"/>
+  <arg name="map_file" default="/home/jetchair/Desktop/be/src/maps/map_saved/sss.yaml"/>
+  <!-- Launch the map_server to load the static map -->
+  <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)"/>
+ <node pkg="amcl" type="amcl" name="amcl" output="screen">
+        
+
+        <param name="odom_frame_id" value="odom"/>
+        <param name="base_frame_id" value="base_footprint"/>
+        <param name="global_frame_id" value="/map"/>
+        <param name="min_particles" value="1000"/>
+        <param name="max_particles" value="2000"/>
+        <param name="update_min_d" value="0.5"/>
+        <param name="update_min_a" value="0.3"/>
+        <param name="resample_interval" value="3"/>
+        <param name="transform_tolerance" value="0.5"/>
+        <param name="laser_max_beams" value="10"/>
+        <param name="laser_z_hit" value="0.5"/>
+        <param name="laser_z_short" value="0.1"/>
+        <param name="laser_z_max" value="0.05"/>
+        <param name="laser_z_rand" value="0.5"/>
+        <param name="laser_sigma_hit" value="0.2"/>
+        <param name="laser_lambda_short" value="0.1"/>
+        <param name="laser_likelihood_max_dist" value="2.0"/>
+        <param name="use_map_topic" value="true"/>
+        <param name="odom_alpha1" value="0.005"/>
+        <param name="odom_alpha2" value="0.005"/>
+        <param name="odom_alpha3" value="0.005"/>
+        <param name="odom_alpha4" value="0.005"/>
+        <param name="odom_alpha5" value="0.005"/>
+        <param name="recovery_alpha_slow" value="0.001"/>
+        <param name="recovery_alpha_fast" value="0.1"/>
+        <param name="initial_pose_x" value="0.0"/>
+        <param name="initial_pose_y" value="0.0"/>
+        <param name="initial_pose_a" value="1.5708"/>
+        <param name="gui_publish_rate" value="50.0"/>
+        <param name="initial_cov_xx" value="0.1"/>
+        <param name="initial_cov_yy" value="0.1"/>
+        <param name="initial_cov_aa" value="0.01"/>
+        <remap from="scan" to="$(arg scan_topic)"/>
+
+    </node>
+  <!-- Algorithm Nodes -->
+  <node pkg="jet_algo" type="odom.py" name="odom" output="screen"/>
+  <node pkg="jet_algo" type="motor.py" name="motor" output="screen"/>
+  <node pkg="jet_algo" type="lifting.py" name="all" output="screen"/>
+  <node pkg="jet_algo" type="laser_filter.py" name="laser_filter" output="screen"/>
+</launch>
+

@@ -1,0 +1,14 @@
+<launch>
+  <arg name="set_frame_id" default="base_scan"/>
+
+  <!-- Start the LiDAR node -->
+  <node pkg="hls_lfcd_lds_driver" type="hlds_laser_publisher" name="lidar" output="screen">
+    <param name="port" value="/dev/usb0"/>
+    <param name="frame_id" value="$(arg set_frame_id)"/>
+
+<remap from="scan" to="/scan_laser"/>
+
+  </node>
+
+
+</launch>

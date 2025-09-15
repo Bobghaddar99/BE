@@ -1,0 +1,63 @@
+TebLocalPlannerROS:
+  teb_autosize: true  # Auto control of trajectory size
+  dt_ref: 0.35  # Time between two reference points in the trajectory
+  dt_hysteresis: 0.05  # Hysteresis for changing reference time
+  global_plan_overwrite_orientation: true  # Adjust orientation to match global plan
+  max_global_plan_lookahead_dist: 1.0  # Distance to look ahead in global plan
+  feasibility_check_no_poses: 25  # Number of poses to check for feasibility
+  oscillation_recovery: true  # Enable oscillation recovery for smoother motion
+  teb_horizon: 2.5
+
+  # Robot
+  max_vel_x: 0.5  # Max linear velocity in x direction
+  max_vel_x_backwards: 0.5  # Max linear velocity backwards
+  max_vel_theta: 1  # Max angular velocity
+  acc_lim_x: 2.5  # Max linear acceleration in x direction
+  acc_lim_theta: 3.2  # Max angular acceleration
+  min_turning_radius: 0.1  # Minimum turning radius
+
+  # Goal Tolerance
+  xy_goal_tolerance: 1  # Tolerance for reaching goal in xy direction
+  yaw_goal_tolerance: 0.1  # Tolerance for reaching goal orientation
+  free_goal_vel: false  # Allow velocity when reaching goal
+
+  # Obstacles
+  min_obstacle_dist: 0.3  # Minimum distance to obstacles
+  include_costmap_obstacles: true  # Include obstacles from costmap
+  costmap_obstacles_behind_robot_dist: 2.5  # Distance to consider obstacles behind robot
+  obstacle_poses_affected: 10  # Number of obstacle poses affecting trajectory
+  costmap_converter_plugin: ""  # Not using a costmap converter
+  costmap_converter_spin_thread: true  # Use a separate thread for costmap converter
+  costmap_converter_rate: 5  # Rate of costmap converter updates
+
+  # Optimization
+  no_inner_iterations: 3  # Number of inner iterations for optimization
+  no_outer_iterations: 3  # Number of outer iterations for optimization
+  optimization_activate: true  # Activate optimization
+  optimization_verbose: false  # Verbose output for optimization
+  penalty_epsilon: 0.1  # Penalty for optimization
+  weight_max_vel_x: 3  # Weight for max velocity in x direction
+  weight_max_vel_theta: 2  # Weight for max angular velocity
+  weight_acc_lim_x: 3.0  # Weight for linear acceleration limit
+  weight_acc_lim_theta: 3.0  # Weight for angular acceleration limit
+  weight_kinematics_nh: 1000  # Weight for non-holonomic constraints
+  weight_kinematics_forward_drive: 10.0  # Weight for forward driving constraints
+  weight_kinematics_turning_radius: 1.0  # Weight for turning radius constraints
+  weight_optimaltime: 1.0  # Weight for optimization time
+  weight_obstacle: 200.0  # Weight for obstacle avoidance
+  weight_dynamic_obstacle: 50.0  # Weight for dynamic obstacle avoidance
+  alternative_time_cost: true  # Use alternative time cost to reduce path length
+
+  # Homotopy Class Planner
+  enable_homotopy_class_planning: true  # Enable homotopy class planning
+  enable_multithreading: true  # Enable multithreading for planning
+  simple_exploration: false  # Use simple exploration for homotopy class planning
+  max_number_classes: 2  # Max number of homotopy classes
+  roadmap_graph_no_samples: 10  # Number of samples for roadmap graph
+  roadmap_graph_area_width: 5.0  # Width of roadmap graph area
+  h_signature_prescaler: 0.5  # Prescaler for homotopy signature
+  h_signature_threshold: 0.1  # Threshold for homotopy signature
+  obstacle_keypoint_offset: 0.1  # Offset for obstacle keypoints
+  obstacle_heading_threshold: 0.45  # Threshold for obstacle heading
+  visualize_hc_graph: false  # Do not visualize the homotopy class graph
+

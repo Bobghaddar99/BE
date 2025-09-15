@@ -1,0 +1,31 @@
+<launch>
+
+    <!-- Start AMCL for localization -->
+    <!-- <include file="$(find stair_cl_maps)/launch/amcl.launch"/> -->
+
+    <!-- Start Gazebo simulation -->
+    <!-- <include file="$(find stair_cl_gazebo)/launch/stair_cl_experiment.launch"/> -->
+
+    <!-- Start the move_base node -->
+   <node pkg="move_base" type="move_base" name="move_base" output="screen">
+        <!-- Load TEB local planner parameters -->
+        <rosparam file="$(find jet_nav)/config_teb/teb_local_planner_params.yaml" command="load" />
+        
+        <!-- Load global costmap parameters -->
+        <rosparam file="$(find jet_nav)/config_teb/costmap_common_params.yaml" command="load" ns="global_costmap" />
+            
+        <!-- Load local costmap parameters -->
+        <rosparam file="$(find jet_nav)/config_teb/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        
+        <!-- Load global costmap parameters -->
+        <rosparam file="$(find jet_nav)/config_teb/global_costmap_params.yaml" command="load" ns="global_costmap" />
+        
+        <!-- Load local costmap parameters -->
+        <rosparam file="$(find jet_nav)/config_teb/local_costmap_params.yaml" command="load" ns="local_costmap" />
+
+        <!-- Specify the TEB local planner as the planner to use -->
+        <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    </node>
+
+</launch>
+

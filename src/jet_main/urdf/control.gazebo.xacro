@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="urdf_pkg">
+  <xacro:include filename="$(find jetchair_urdf)/urdf/macro.urdf.xacro"/>
+<xacro:gazebo_params wheel="right_wheel"/>
+<xacro:gazebo_params wheel="left_wheel"/>
+<xacro:actuator_plugin wheel="right_wheel"/>
+<xacro:actuator_plugin wheel="left_wheel"/>
+<xacro:transmission wheel="right_wheel"/>
+<xacro:transmission wheel="left_wheel"/><!-- <xacro:gazebo_params wheel="right_caster_wheel"/>
+<xacro:gazebo_params wheel="left_caster_wheel"/> -->
+  <!-- Gazebo Skid Steer Drive Controller Plugin -->
+<gazebo>
+<plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+<updateRate>30.0</updateRate>
+<robotNamespace></robotNamespace>
+<alwaysOn>true</alwaysOn>
+<!-- <rightFrontJoint>fr_wheel_joint</rightFrontJoint> -->
+<rightRearJoint>right_wheel_joint</rightRearJoint>
+<!-- <leftFrontJoint>fl_wheel_joint</leftFrontJoint> -->
+<leftRearJoint>left_wheel_joint</leftRearJoint>
+<wheelSeparation>0.38</wheelSeparation>
+<wheelDiameter>0.254</wheelDiameter>
+<robotBaseFrame>base_link</robotBaseFrame>
+<torque>100</torque>
+<commandTopic>cmd_vel</commandTopic>
+<broadcastTF>1</broadcastTF>
+<covariance_x>1</covariance_x>
+<covariance_y>1</covariance_y>
+<covariance_z>0.001</covariance_z>
+<odometryTopic>odom</odometryTopic>
+<odometryFrame>odom</odometryFrame>
+<covariance_yaw>1</covariance_yaw>
+</plugin>
+</gazebo>
+<!-- AR Lidar-->
+    <gazebo reference="lidar">
+    <sensor type="ray" name="laser_sensor">
+      <pose> 0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.3</min>
+          <max>30.0</max>
+          <resolution>1</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="laser_controller" filename="libgazebo_ros_laser.so">
+        <ros>
+          <argument>~/out:=scan</argument>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <!-- <topicName>/urdf_pkg/laser/scan</topicName> -->
+        <frameName>lidar</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+</robot>
+
+
+     <transmission name="right_wheel_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="right_wheel_motor"/>
+      <joint name="right_wheel_joint">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </joint>
+      </transmission>
+      <transmission name="left_wheel_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="left_wheel_motor"/>
+      <joint name="left_wheel_joint">
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      </joint>
+      </transmission>

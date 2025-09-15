@@ -1,0 +1,2 @@
+gui_ros:jet_algos:jet_main:jet_nav:maps:rrt_exploration
+-DCATKIN_DEVEL_PREFIX=/home/jetchair/Desktop/be/devel -DCMAKE_INSTALL_PREFIX=/home/jetchair/Desktop/be/install -G Unix Makefiles

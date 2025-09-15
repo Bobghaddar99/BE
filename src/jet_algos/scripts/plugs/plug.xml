@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<library path="src/my_rqt_plugin">
+  <class name="my_rqt_plugin.MyRqtPlugin" type="my_rqt_plugin.MyRqtPlugin">
+    <description>
+      A simple RQT plugin that displays a button and label.
+    </description>
+  </class>
+</library>

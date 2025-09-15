@@ -1,0 +1,306 @@
+<link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0638111904233887 0.259292002515958 0.000174820208351727"
+        rpy="0 0 0" />
+      <mass
+        value="24.4288953749899" />
+      <inertia
+        ixx="2.15775889098001"
+        ixy="-0.121392284029512"
+        ixz="-8.44237912662218E-06"
+        iyy="1.78866042059704"
+        iyz="0.00044128691178238"
+        izz="2.44326538062497" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="right_wheel_link">
+    <inertial>
+      <origin
+        xyz="1.20728368712131E-05 -4.41726173545411E-05 0.0803821994836058"
+        rpy="0 0 0" />
+      <mass
+        value="1.89094567469007" />
+      <inertia
+        ixx="0.00469297368604033"
+        ixy="1.02304124561375E-06"
+        ixz="1.38449169688434E-06"
+        iyy="0.00469185601672651"
+        iyz="-4.74944341118092E-06"
+        izz="0.00762861332160976" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/right_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.317016187477534 0.0279213596411635 0.235999996669089"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel_link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="left_wheel_link">
+    <inertial>
+      <origin
+        xyz="-1.50842091188319E-05 -4.32370229008876E-05 -0.0803821994836057"
+        rpy="0 0 0" />
+      <mass
+        value="1.89094567469007" />
+      <inertia
+        ixx="0.00469282791316708"
+        ixy="-1.09008693546261E-06"
+        ixz="1.70806978881343E-06"
+        iyy="0.00469200178959976"
+        iyz="4.64290077120894E-06"
+        izz="0.00762861332160976" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.317016187477534 0.0279213596411634 -0.236000003330911"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="right_caster_link">
+    <inertial>
+      <origin
+        xyz="0.0245535555969236 -0.0999996285913154 0.00317558767246406"
+        rpy="0 0 0" />
+      <mass
+        value="0.24268044232826" />
+      <inertia
+        ixx="0.000187180638918598"
+        ixy="5.84161009709945E-06"
+        ixz="-1.54002093645186E-05"
+        iyy="0.000183879933805627"
+        iyz="7.76812158551572E-07"
+        izz="0.000299753513873403" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/right_caster_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/right_caster_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_caster_joint"
+    type="fixed">
+    <origin
+      xyz="0.334865502245741 0.0926000000000001 0.237499996669089"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_caster_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="left_caster_link">
+    <inertial>
+      <origin
+        xyz="0.0245535555969237 -0.0999996285913155 0.00317558767246415"
+        rpy="0 0 0" />
+      <mass
+        value="0.242680442328259" />
+      <inertia
+        ixx="0.000187180638918596"
+        ixy="5.84161009710068E-06"
+        ixz="-1.54002093645183E-05"
+        iyy="0.000183879933805616"
+        iyz="7.7681215855001E-07"
+        izz="0.000299753513873396" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/left_caster_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/left_caster_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_caster_joint"
+    type="fixed">
+    <origin
+      xyz="0.334865502245741 0.0926000000000001 -0.237500003330911"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_caster_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lidar_link">
+    <inertial>
+      <origin
+        xyz="0.00676832715317711 -0.00738785210738579 9.17768374699233E-05"
+        rpy="0 0 0" />
+      <mass
+        value="1.33041048124832" />
+      <inertia
+        ixx="0.000614736954229148"
+        ixy="0.000158189979278382"
+        ixz="8.0027125959029E-07"
+        iyy="0.00109812375363565"
+        iyz="3.09603626647983E-06"
+        izz="0.000960497023041248" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jetchair_it2_assem_v3/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0.107762961867297 0.04265 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
