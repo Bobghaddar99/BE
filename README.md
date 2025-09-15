@@ -40,7 +40,8 @@ Key highlights:
 ---
 ## ▶️ How to Launch
 
-1. **Clone the repository** into your ROS workspace:
+
+**Clone the repository** into your ROS workspace:
 
 ```bash
 cd ~/catkin_ws/src
